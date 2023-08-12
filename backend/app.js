@@ -1,8 +1,15 @@
+const path =    require("path");
 const express = require("express");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
+const passport = require("passport");
+const session = require("express-session");
 const app = express();
 const corse = require("cors")
 require("dotenv").config();
+
+// passport config
+require()
 
 //middleware
 const corsOptions = {
