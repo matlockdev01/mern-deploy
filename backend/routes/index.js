@@ -5,3 +5,23 @@ const Story = require('../models/Story')
 
 // @desc    login/landing page
 // @route   GET /
+router.get('/', ensureGuest, (req, res) => {
+    res.render('login.hbs', {
+        layout: 'login',
+    })
+})
+
+// @desc    Dashboard
+// @route   GET /dashboard
+router.get('/dashboard', ensureAuth, async (req, res) => {
+    try {
+        const myStories = await Story.find({ user: req.user.id }).lean()
+        res.render('dashboard.hbs', {
+            name: req.user.firstName,
+            myStories
+        })
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
