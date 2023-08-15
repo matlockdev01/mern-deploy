@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd backend && npm install && npm install express-session && npm install passport-google-oauth20 && npm run start",
+    "install-server": "cd backend && npm install",
     "start-server": "cd backend && node app.js",
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
