@@ -28,6 +28,11 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log(err);
 });
 
+// Logging
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+}
+
 //route 
 app.get("/", (req, res) => {
     res.status(201).json({message: "Connected to Backend!"});
