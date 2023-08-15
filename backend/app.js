@@ -1,10 +1,14 @@
-const path =    require("path");
-const express = require("express");
-const mongoose = require("mongoose");
+const path =    require("path")
+const express = require("express")
+const mongoose = require("mongoose")
+const morgan = require("morgan")
+const exphbs = require("express-handlebars")
+const MongoStore = require("connect-mongo")
+const connectDB = require("./config/db")
 const passport = require("passport-google-oauth20");
 const session = require("express-session");
 const app = express();
-const corse = require("cors")
+const cors = require("cors")
 require("dotenv").config();
 
 // passport config
