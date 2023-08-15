@@ -1,7 +1,6 @@
 const path =    require("path");
 const express = require("express");
 const mongoose = require("mongoose");
-const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
 const app = express();
@@ -27,11 +26,6 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 }).catch(err => {
     console.log(err);
 });
-
-// Logging
-if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'))
-}
 
 //route 
 app.get("/", (req, res) => {
